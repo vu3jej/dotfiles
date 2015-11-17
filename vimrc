@@ -3,7 +3,7 @@
 set number
 set visualbell
 set history=1000
-set syntax on
+syntax on
 
 " Configure backspace
 set backspace=eol,start,indent
