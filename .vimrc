@@ -10,6 +10,10 @@ set hidden
 set spell
 set spelllang=en
 
+" change the highlighting style for bad spellings into underline
+hi clear SpellBad
+hi SpellBad cterm=underline
+
 " enable line numbers
 set number
 
