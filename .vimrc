@@ -25,6 +25,9 @@ set autoread
 " configure backspace to act normal(unlike Vim)
 set backspace=eol,start,indent
 
+" highlight current line
+set cursorline
+
 " ========== History ==========
 
 " save more in undo history
@@ -95,6 +98,15 @@ set noerrorbells
 set novisualbell
 
 " ========== Miscellaneous/Fancy Stuff ==========
+
+" enable folding
+set foldenable
+
+" open most folds by default
+set foldlevelstart=10
+
+" fold based on indent level(because Python)
+set foldmethod=indent
 
 " display line number, column number & other stuff
 set ruler
