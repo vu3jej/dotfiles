@@ -2,6 +2,28 @@
 
 " break compatibility with vi
 set nocompatible
+filetype off
+
+" ========== Vundle Configuration ==========
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" install Powerline
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" Powerline setup
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+set laststatus=2
+
+" install Python-mode
+Bundle 'klen/python-mode'
+
+" ========== General Configuration ==========
 
 " buffers can exist in background
 set hidden
@@ -61,7 +83,6 @@ set copyindent
 autocmd filetype html setlocal shiftwidth=2 tabstop=2
 
 syntax on
-filetype on
 filetype indent on
 filetype plugin on
 filetype plugin indent on
