@@ -1,7 +1,6 @@
 " ========== In the Beginning... Was the Command Line ==========
 
-" break compatibility with vi
-set nocompatible
+set nocompatible                " break compatibility with vi
 filetype off
 
 " ========== Vundle Configuration ==========
@@ -23,40 +22,28 @@ set laststatus=2
 " install Python-mode
 Bundle 'klen/python-mode'
 
+" install NERD Commenter
+Bundle 'scrooloose/nerdcommenter'
+
 " ========== General Configuration ==========
 
-" buffers can exist in background
-set hidden
+set hidden                      " buffers can exist in background
 
-" enable in-line spell check (SHORTCUT: z + =)
-set spell
+set spell                       " enable in-line spell check(SHORTCUT: z=)
 set spelllang=en
-
-" change the highlighting style for bad spellings into underline
-hi clear SpellBad
+hi clear SpellBad               " change the highlighting style for bad spellings into underline
 hi SpellBad cterm=underline
 
-" enable line numbers
 set number
-
-" display the current mode
 set showmode
 
-" pasting without auto indent
-set paste
-
-" reload files modified outside of Vim
-set autoread
-
-" configure backspace to act normal(unlike Vim)
-set backspace=eol,start,indent
-
-" highlight current line
-set cursorline
+set paste                       " pasting without auto indent
+set autoread                    " reload files modified outside of Vim
+set backspace=eol,start,indent  " configure backspace to act normal(unlike Vim)
+set cursorline                  " highlight current line
 
 " ========== History ==========
 
-" save more in undo history
 set history=1000
 set undolevels=1000
 
@@ -75,11 +62,8 @@ set softtabstop=4
 set expandtab
 set autoindent
 set smartindent
-
-" copy previous indent on enter
 set copyindent
 
-" setup 2 spaces for html files
 autocmd filetype html setlocal shiftwidth=2 tabstop=2
 
 syntax on
@@ -98,58 +82,37 @@ set magic
 
 " ========== Color Scheme ==========
 
-" enable 256 colors in Vim
-set t_Co=256
+set t_Co=256                    " enable 256 colors in Vim
 
 " ========== Searching & Matching ==========
 
-" show partial commands
-set showcmd
-
-" show matching brackets
-set showmatch
-
-" do case insensitive matching
+set showcmd                     " show partial commands
+set showmatch                   " show matching brackets
 set ignorecase
 set smartcase
 
-" incremental search
-set incsearch
-
-" highlight searches
+set incsearch                   " incremental search
 set hlsearch
-
 set noerrorbells
 set novisualbell
 
 " ========== Miscellaneous/Fancy Stuff ==========
 
-" enable folding
-set foldenable
+set foldenable                  " enable folding
+set foldlevelstart=10           " open most folds by default
+set foldmethod=indent           " fold based on indent level(because Python)
 
-" open most folds by default
-set foldlevelstart=10
-
-" fold based on indent level(because Python)
-set foldmethod=indent
-
-" display line number, column number & other stuff
-set ruler
-
-" turn on the wild things
 set wildmenu
 set wildmode=list:longest,full
 
-" ignore compiled files
-set wildignore=*.o,*~,*.pyc
+set wildignore=*.o,*~,*.pyc     " ignore compiled files
 set wildignore+=*ds_store*
 
-" show tabs and trailing spaces
-set listchars=tab:→\ ,trail:·
+set listchars=tab:▸\ ,trail:·   " show tabs and trailing spaces
 set list
 
-" enable mouse in all modes
 set mouse=a
+set ruler                       " display line number, column number & other stuff
+set undofile                    " create <FILENAME>.un~/enable undo even after closing and reopening a file
+set cino=(0                     " have the parameters in the unclosed parentheses align on ENTER
 
-" have the parameters in the unclosed parentheses align on ENTER
-set cino=(0
