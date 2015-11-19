@@ -76,7 +76,7 @@ filetype plugin indent on
 set textwidth=79
 set formatoptions+=t
 
-" ========== Regular Expressions(Piertotum Locomotor!) ========== 
+" ========== Regular Expressions ==========
 
 set magic
 
