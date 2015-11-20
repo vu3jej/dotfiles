@@ -1,8 +1,7 @@
 set nocompatible
 filetype off
 
-" Vundle Configuration
-
+" Vundle configuration
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -14,7 +13,6 @@ Bundle 'klen/python-mode'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
 
 set hidden
 set number
