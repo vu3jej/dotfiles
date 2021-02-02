@@ -27,16 +27,16 @@
 
 ;; If there are no archived package contents, refresh them
 
-(when (not package-archive-contents) 
+(when (not package-archive-contents)
   (package-refresh-contents))
 
 ;; Installs packages
 
 ;;
 
-;; myPackages contains a list of package names
+;; all-packages contains a list of package names
 
-(defvar myPackages 
+(defvar all-packages
   '(better-defaults ;; Set up some better Emacs defaults
     elpy	    ;; Emacs Lisp Python Environment
     py-autopep8	    ;; Run autopep8 on save
@@ -44,17 +44,16 @@
     magit	    ;; Git integration
     flycheck	    ;; On the fly syntax checking
     material-theme  ;; Theme
-    projectile
-    ))
+    projectile string-inflection elisp-format))
 
 
 ;; Scans the list in myPackages
 
 ;; If the package listed is not already installed, install it
 
-(mapc #'(lambda (package) 
-	  (unless (package-installed-p package) 
-	    (package-install package))) myPackages)
+(mapc #'(lambda (package)
+	  (unless (package-installed-p package)
+	    (package-install package))) all-packages)
 
 ;; ===================================
 
@@ -73,20 +72,26 @@
 (elpy-enable)
 ;; Enable Flycheck
 
-(when 
+(when
     (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 ;; Enable autopep8
 
-(require 'py-autopep8)
-
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+
 
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+(add-hook 'python-mode-hook '(lambda ()
+			       (local-set-key (kbd "C-c C-u")
+					      'string-inflection-python-style-cycle)))
+
+(add-to-list 'default-frame-alist '(font . "JetBrains Mono"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -94,9 +99,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(package-selected-packages (quote (srefactor material-theme better-defaults))))
+ '(package-selected-packages (quote (elisp-format srefactor material-theme better-defaults))))
 
-(add-to-list 'default-frame-alist '(font . "JetBrains Mono"))
+
 
 ;; User-Defined init.el ends here
 
@@ -107,3 +112,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'upcase-region 'disabled nil)
